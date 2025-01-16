@@ -8,6 +8,7 @@ import com.chess.engine.board.Move.*;
 import com.chess.engine.board.Tile;
 import com.google.common.collect.ImmutableList;
 
+import java.security.KeyManagementException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -50,6 +51,11 @@ public class Knight extends Piece {
             }
         }
         return ImmutableList.copyOf(legalMoves);
+    }
+
+    @Override
+    public Knight movePiece(final Move move) {
+        return new Knight(move.getDestinationCoordinate(), move.getMovedPiece().getPieceAlliance());
     }
 
     @Override
